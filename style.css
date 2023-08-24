@@ -1,0 +1,222 @@
+@font-face {
+    font-family: h4font;
+    src: url(Gilroy-Bold.ttf);
+}
+
+@font-face {
+    font-family: monserrat;
+    src: url(Montserrat-Black.ttf);
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: monserrat;
+    color: #fff;
+}
+
+html, body{
+    height: 100%;
+    width: 100%;
+}
+
+#cursor{
+    height: 20px;
+    width: 20px;
+    background-color: #95c11e;
+    border-radius: 50%;
+    position: fixed;
+    z-index: 99;
+}
+
+#cursor-blur{
+    height: 400px;
+    width: 400px;
+    background-color: rgba(150, 193, 30, 0.333);
+    border-radius: 50%;
+    position: fixed;
+    filter: blur(70px);
+    z-index: 9;
+}
+
+#nav{
+    height: 145px;
+    width: 100%;
+    /* background-color: red; */
+    display: flex;
+    align-items: center;  /* y center*/
+    gap: 50px;
+    position: fixed;
+    padding: 0 130px;
+    justify-content: flex-start;   /* x axis start from flex*/
+    z-index: 99;
+
+
+}
+
+#nav img{
+    height: 75px;
+}
+
+#nav h4{
+    text-transform: uppercase;
+    font-weight: 500;
+}
+
+video{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    z-index: -1;
+    position: fixed;
+}
+
+#main{
+    position: relative;
+    background-color: rgba(0, 0, 0, 0.37);
+
+
+}
+
+#page1{
+    height: 100vh;
+    width: 100%;
+    /* background-color: red; */
+    position: relative;  /* we will give all main divs relativ so that their chid could be related*/
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* untill here everything is hswing on rows 
+    we could suggest a direction too */ 
+    flex-direction: column;
+    text-align: center;
+    z-index: 10;
+}
+
+#page1 h1{
+    font-size: 115px;
+    font-weight: 900;
+    position: relative;  /*pseudo top*/
+}
+
+/* Pseudo */
+#page1 h1::before{
+    content: "EAT. DRINK. PLAY.";
+    position: absolute;
+    color: #000;
+    top: -6px;
+    left: -6px;
+    -webkit-text-stroke: 1px #95c11e;  /* border 2 properties are req.*/
+    z-index: -1;
+    
+}
+
+#page1 h2{
+    font-size: 30px;
+    font-weight: 800;
+    margin-top: 10px;
+    margin-bottom: 20px;
+
+}
+
+#page1 p{
+    font-size: 18px;
+    font-weight: 500;
+    width: 50%;
+}
+
+#page2{
+    height: 100vh;  /* we didnt give height to its parent thats why using vh . if % it cant be visible*/
+    width: 100%;
+    z-index: 10;
+}
+
+
+#scroller{
+    /* background-color: red; */
+    white-space: nowrap;
+    /* going outside the window */
+    overflow-x: auto;
+    overflow-y: hidden;
+    position: relative;
+    z-index: 10;
+   
+}
+
+#scroller::-webkit-scrollbar{
+    display: none;
+}
+
+#scroller-in{
+    display: inline-block;
+    white-space: nowrap;   /*no next line */
+    animation-name: scroll;
+    animation-duration: 30s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+
+#scroller h4{
+    display: inline-block;
+    font-size: 120px;
+    font-weight: 900;  /*dark*/
+    font-family: h4font;  /* is  usd because of text stroke*/
+    margin-right: 10px;
+    color: transparent;
+    transition: all linear 0.5s;
+    -webkit-text-stroke: 2px #95c11e;
+}
+
+
+#scroller h4:hover{
+    color: #95c11e;
+}
+
+
+@keyframes scroll {
+    from{
+        transform: translateX(0);
+    }
+    
+    to{
+        transform: translateX(-100%);
+    }
+}
+
+#about-us{
+    height: 40vh;
+    width: 100%;
+    /* background-color: red; */
+    display: flex;
+    /* margin-top: 60px; */
+    padding: 0 50px;
+    text-align: center;
+    position: relative;
+    z-index: 10;
+    justify-content: space-around;
+}
+
+#about-us img{
+    height: 200px;
+    width: 200px;
+    margin-top: 45px;
+    border-radius: 20px;
+    object-fit: cover;
+}
+
+#about-us-in{
+    width: 50%;
+    text-align: center;
+}
+
+#about-us-in h3{
+    font-size: 54px;
+    font-weight: 800;
+    margin-bottom: 40px;
+}
+
+#about-us-in p{
+    font-size: 20px;
+    line-height: 26px;
+}
